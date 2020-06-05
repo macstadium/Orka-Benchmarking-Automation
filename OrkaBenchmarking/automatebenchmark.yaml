@@ -1,0 +1,37 @@
+--- 
+- 
+  vars:
+    build: "edhita"
+    node: "macpro-5"
+  hosts: "{{ node }}"
+  serial: 4
+  order: sorted
+  remote_user: admin
+  tasks: 
+    - 
+      shell: "cd /Users/admin/benchmarking-tool/build/scripts/ && PATH=/usr/local/bin:$PATH && eval \"$(pyenv init -)\" && chmod +x acton_{{ build }}.sh && ./acton_{{ build }}.sh"
+      name: "Bench Start"
+      register: bench_sleeper
+      async: 3000
+      poll: 0
+    -
+      name: "Check on bench job"
+      async_status:
+        jid: "{{ bench_sleeper.ansible_job_id }}"
+      register: bench_check
+      until: bench_check.finished
+      retries: 60
+      delay: 60
+    - 
+      name: "Wait for results"
+      wait_for:
+        path: /Users/admin/benchmarking-tool/build/scripts/ex_{{ build }}.txt
+        state: present
+      async: 600
+      poll: 5
+    -
+      name: "Retrieve Results"
+      fetch:
+        src: /Users/admin/benchmarking-tool/build/scripts/ex_{{ build }}.txt
+        dest: /Users/test/Downloads/Orka_Ansible/OrkaBenchmarking/Results/ex_{{ build }}_{{ inventory_hostname }}.txt
+        flat: yes

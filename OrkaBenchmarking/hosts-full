@@ -1,0 +1,44 @@
+
+[all:vars]
+anisble_connection=ssh
+ansible_ssh_user=admin
+ansible_ssh_pass=admin
+
+[hosts]
+127.0.0.1 anisble_connection=local
+orkaVM8822_macpro-1 ansible_ssh_port=8822 ansible_ssh_host=10.10.10.14
+orkaVM8823_macpro-1 ansible_ssh_port=8823 ansible_ssh_host=10.10.10.14
+orkaVM8824_macpro-1 ansible_ssh_port=8824 ansible_ssh_host=10.10.10.14
+orkaVM8825_macpro-1 ansible_ssh_port=8825 ansible_ssh_host=10.10.10.14
+orkaVM8822_macpro-2 ansible_ssh_port=8822 ansible_ssh_host=10.10.10.15
+orkaVM8823_macpro-2 ansible_ssh_port=8823 ansible_ssh_host=10.10.10.15
+orkaVM8824_macpro-2 ansible_ssh_port=8824 ansible_ssh_host=10.10.10.15
+orkaVM8825_macpro-2 ansible_ssh_port=8825 ansible_ssh_host=10.10.10.15
+orkaVM8822_macpro-3 ansible_ssh_port=8822 ansible_ssh_host=10.10.10.16
+orkaVM8823_macpro-3 ansible_ssh_port=8823 ansible_ssh_host=10.10.10.16
+orkaVM8824_macpro-3 ansible_ssh_port=8824 ansible_ssh_host=10.10.10.16
+orkaVM8825_macpro-3 ansible_ssh_port=8825 ansible_ssh_host=10.10.10.16
+
+
+[local]
+127.0.0.1 anisble_connection=local
+
+[macpro-1]
+orkaVM8822_macpro-1 
+orkaVM8823_macpro-1 
+orkaVM8824_macpro-1 
+orkaVM8825_macpro-1 
+
+[macpro-2]
+orkaVM8822_macpro-2 
+orkaVM8823_macpro-2 
+orkaVM8824_macpro-2 
+orkaVM8825_macpro-2
+
+[macpro-3]
+orkaVM8822_macpro-3 
+orkaVM8823_macpro-3 
+orkaVM8824_macpro-3 
+orkaVM8825_macpro-3 
+
+

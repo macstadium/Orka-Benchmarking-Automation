@@ -1,0 +1,10 @@
+---
+# Establish Variables for Orka Functions
+vm_name: automatedbench
+base_image: NewBenchSetup2.img
+phys_cores: "12"
+virtual_cores: "12"
+iso: 
+vnc_console: "--vnc yes"
+license_key: "orka-license-key"
+api_endpoint: "http://10.10.10.100"
