@@ -1,21 +1,21 @@
 #!/bin/bash
 
 array=( 
-    # 2048 
-    # audiokit_ios
-    # audiokit_macos
-    # brave_ios
-    # duck_duck_go
+    2048 
+    audiokit_ios
+    audiokit_macos
+    brave_ios
+    duck_duck_go
     edhita
-    # irccloud_ios
-    # nextcloud_ios
-    # react_native
-    # simplenote-ios
-    # talk_ios
-    # wikipedia
-    # wire_ios
-    # wordpress
-    # wwdc
+    irccloud_ios
+    nextcloud_ios
+    react_native
+    simplenote-ios
+    talk_ios
+    wikipedia
+    wire_ios
+    wordpress
+    wwdc
     )
 # echo Commencing Benchmark Test...
 # # Ask the user for VM name
@@ -64,33 +64,33 @@ do
 sleep 50s
 
     scripts/sub_bench_automation.sh $TEST $5
-    ansible-playbook -i salesv2-hosts-full -vvv automatebenchmark.yaml
+    ansible-playbook -i hosts-full -vvv automatebenchmark.yaml
     cd Results
     if [ "$6" = 0 ]; then
-        for f in ex_$TEST*.txt; do mv "$f" "con00/CAT_OST_Pure-$3c$4C_${f%.txt}_con$6.txt"; done
+        for f in ex_$TEST*.txt; do mv "$f" "con00/CAT_OST_local-$3c$4C_${f%.txt}_con$6.txt"; done
     cd ../
     fi
 
     if [ "$6" = 1 ]; then
-        for f in ex_$TEST*.txt; do mv "$f" "con001/CAT_OST_Pure-$3c$4C_${f%.txt}_con$6.txt"; done
+        for f in ex_$TEST*.txt; do mv "$f" "con001/CAT_OST_local-$3c$4C_${f%.txt}_con$6.txt"; done
     cd ../
     fi
 
     if [ "$6" = 2 ]; then
-        for f in ex_$TEST*.txt; do mv "$f" "con002/CAT_OST_Pure-$3c$4C_${f%.txt}_con$6.txt"; done
+        for f in ex_$TEST*.txt; do mv "$f" "con002/CAT_OST_local-$3c$4C_${f%.txt}_con$6.txt"; done
     cd ../
     fi
 
     if [ "$6" = 3 ]; then
-        for f in ex_$TEST*.txt; do mv "$f" "con003/CAT_OST_Pure-$3c$4C_${f%.txt}_con$6.txt"; done
+        for f in ex_$TEST*.txt; do mv "$f" "con003/CAT_OST_local-$3c$4C_${f%.txt}_con$6.txt"; done
     cd ../
     fi
 
     orka vm purge -v $1 -y
 sleep 10s
 done
-echo "THIS IS A CHECK"
-pwd
+# echo "THIS IS A CHECK"
+# pwd
 
 
 

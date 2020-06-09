@@ -33,5 +33,5 @@
       name: "Retrieve Results"
       fetch:
         src: /Users/admin/benchmarking-tool/build/scripts/ex_{{ build }}.txt
-        dest: /Users/danielpierre-louis/Documents/Orka_Ansible/OrkaBenchmarking/Results/ex_{{ build }}_{{ inventory_hostname }}.txt
+        dest: ~/Documents/Orka_Ansible/OrkaBenchmarking/Results/ex_{{ build }}_{{ inventory_hostname }}.txt
         flat: yes
